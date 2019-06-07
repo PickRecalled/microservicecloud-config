@@ -10,7 +10,6 @@ spring:
   # 集群时对外暴露的统一的服务实例名
   application:
     name: microservicecloud-config-dept-client
-
   datasource:
     # 当前数据源操作类型
     type: com.alibaba.druid.pool.DruidDataSource
