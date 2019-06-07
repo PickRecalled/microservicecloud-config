@@ -62,7 +62,7 @@ server:
   port: 8001
   
 spring:
-  profiles: dev
+  profiles: test
   # 集群时对外暴露的统一的服务实例名
   application:
     name: microservicecloud-config-dept-client
