@@ -52,4 +52,55 @@ info:
   company.name: PickRecalledDev
   build.artifactId: $project.artifactId$
   build.version: $project.version$
+  
+---
+server:
+  port: 8001
+spring:
+  profiles: test
+  # 集群时对外暴露的统一的服务实例名
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动包
+    driver-class-name: org.gjt.mm.mysql.Driver
+    # 数据库名称
+    url: jdbc:mysql://localhost:3306/springcloud02
+    username: root
+    password: root
+    dbcp2:
+      # 数据库连接池的最小维持连接数
+      min-idle: 5
+      # 初始化连接数
+      initial-size: 5
+      # 最大连接数
+      max-total: 5
+      # 等待连接获取的最大超时时间
+      max-wait-millis: 200
+  
+mybatis: 
+  type-aliases-package: com.pickrecalled.entity
+  mapper-locations:
+  - classpath*:mapper/**/*.xml
+       
+eureka:
+  # 客户端注册进eureka服务列表内
+  client:
+    service-url:
+      # defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7002.com:7002/eureka
+  instance: 
+    # 自定义服务名称信息
+    instance-id: test-dept-config-8001
+    # 访问路径可以显示IP地址
+    prefer-ip-address: true
+    
+# 微服务info内容详细信息    
+info: 
+  app.name: study-springcloud-test
+  company.name: PickRecalledDev
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
 
