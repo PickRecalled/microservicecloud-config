@@ -6,12 +6,6 @@ spring:
 ---
 server:
   port: 8001
-  
-mybatis: 
-  type-aliases-package: com.pickrecalled.entity
-  mapper-locations:
-  - classpath*:mapper/**/*.xml
-  
 spring:
   profiles: dev
   # 集群时对外暴露的统一的服务实例名
@@ -36,6 +30,11 @@ spring:
       max-total: 5
       # 等待连接获取的最大超时时间
       max-wait-millis: 200
+  
+mybatis: 
+  type-aliases-package: com.pickrecalled.entity
+  mapper-locations:
+  - classpath*:mapper/**/*.xml
        
 eureka:
   # 客户端注册进eureka服务列表内
@@ -60,12 +59,6 @@ info:
 ---
 server:
   port: 8001
-
-mybatis: 
-  type-aliases-package: com.pickrecalled.entity
-  mapper-locations:
-  - classpath*:mapper/**/*.xml
- 
 spring:
   profiles: test
   # 集群时对外暴露的统一的服务实例名
@@ -90,7 +83,12 @@ spring:
       max-total: 5
       # 等待连接获取的最大超时时间
       max-wait-millis: 200
-       
+
+mybatis: 
+  type-aliases-package: com.pickrecalled.entity
+  mapper-locations:
+  - classpath*:mapper/**/*.xml
+        
 eureka:
   # 客户端注册进eureka服务列表内
   client:
